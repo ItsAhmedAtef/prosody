@@ -1,0 +1,313 @@
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #2a2a2e;
+    color: #fff;
+}
+
+header {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    padding: 15px 10%;
+    background-color: #edf0f1;
+}
+
+header li {
+    font-size: 16px;
+    font-weight: 500;
+}
+
+header a {
+    text-decoration: none;
+    color: #000;
+}
+
+#logo {
+    cursor: pointer;
+    margin-right: auto;
+    width: 100px;
+}
+
+.nav__links {
+    list-style: none;
+    text-align: right;
+}
+
+.nav__links li {
+    display: inline-block;
+    padding: 0 10px;
+}
+
+.nav__links li a {
+    transition: all 0.3s ease 0s;
+}
+
+.nav__links li a:hover {
+    color: #0088a9;
+}
+
+.active {
+    background-color: rgba(0,136,169,1);
+    padding: 9px 25px;
+    border-radius: 20px;
+    color: #fff
+}
+.nav__links li .active:hover {
+    color: #fff;
+}
+
+#content {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    margin-top: 30px;
+    font-size: 25px;
+}
+
+#content #form {
+    text-align: center;
+}
+
+#content #form input {
+    width: 400px;
+    margin-right: 5px;
+    min-height: 33px;
+    border: none;
+    border-radius: 5px;
+    padding: 0 5px 0 2px;
+}
+
+#content p {
+    margin-bottom: 15px;
+    text-align: center;
+}
+
+#about span {
+    color: #0088a9;
+}
+
+#about {
+    padding: 10px 30px;
+    text-align: center;
+    font-family: "Amiri";
+    font-size: 20px;
+}
+
+#content #form button {
+    padding: 10px;
+    background-color: #0088a9;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: all 0.3s ease 0s;
+}
+
+#telegram img {
+    width: 100px;
+}
+
+#response {
+    padding: 10px;
+    text-align: center;
+}
+
+#response table {
+    border-collapse: collapse;
+    margin-bottom: 10px;
+    direction: rtl;
+}
+
+#response table span {
+    color: #0088a9;
+}
+
+#response table tr td,
+#response table tr th {
+    padding: 5px;
+}
+
+#response table tr td {
+    border-bottom: 1px solid #40c7e8;
+}
+
+/***** ***** circle ***** *****/
+.single-chart {
+    width: 100px;
+    margin: 10px;
+    display: inline-grid;
+}
+
+.circular-chart {
+    display: block;
+    stroke: #4CC790;
+}
+
+.circle-bg {
+    fill: none;
+    stroke: #eee;
+    stroke-width: 1.5;
+}
+
+.circle {
+    fill: none;
+    stroke-width: 2.8;
+    stroke-linecap: round;
+    animation: progress 1.5s ease-out forwards;
+}
+
+@keyframes progress {
+    0% {
+        stroke-dasharray: 0 100;
+    }
+}
+
+.percentage {
+    font-family: sans-serif;
+    font-size: 10px;
+    text-anchor: middle;
+}
+/***** ***** circle ***** *****/
+
+@media only screen and (min-width: 1280px) {
+    header li {
+        font-size: 18px;
+    }
+    .nav__links li {
+        padding: 0 15px;
+    }
+}
+
+@media only screen and (max-width: 800px) {
+    #logo {
+        width: 80px;
+    }
+}
+
+@media only screen and (max-width: 550px) {
+    #content #form input {
+        width: 300px;
+    }
+}
+
+@media only screen and (max-width: 500px) {
+    header {
+        padding: 15px 8%;
+    }
+    #logo {
+        width: 70px;
+    }
+    .nav__links li {
+        padding: 0 8px;
+    }
+    .active {
+        padding: 8px 15px;
+        border-radius: 20px;
+
+    }
+    header li {
+        font-size: 15px;
+        font-weight: 500;
+    }
+}
+
+@media only screen and (max-width: 450px) {
+    #response table {
+        font-size: 17px;
+    }
+}
+
+@media only screen and (max-width: 390px) {
+    header {
+        padding: 15px 5%;
+    }
+    #logo {
+        width: 60px;
+    }
+    .nav__links li {
+        padding: 0 4px;
+    }
+    .active {
+        padding: 8px 12px;
+        border-radius: 20px;
+
+    }
+    header li {
+        font-size: 15px;
+        font-weight: 500;
+    }
+    #content #form input {
+        width: 200px;
+    }
+}
+
+.fa-spin {
+    border-radius: 50% !important;
+}
+
+@media only screen and (max-width: 300px) {
+    header {
+        padding: 10px 2%;
+    }
+    #logo {
+        width: 60px;
+    }
+    .nav__links li {
+        padding: 0 1px;
+    }
+    .active {
+        padding: 8px 12px;
+        border-radius: 20px;
+
+    }
+    header li {
+        font-size: 13px;
+        font-weight: 500;
+    }
+}
+
+@media only screen and (max-width: 270px) {
+    #response table {
+        font-size: 15px;
+    }
+    #response table tr th,
+    #response table tr td {
+        padding: 2px;
+    }
+}
+
+@media only screen and (max-width: 260px) {
+    #content #form input {
+        width: 150px;
+    }
+}
+
+@media only screen and (max-width: 230px) {
+    .active {
+        display: none;
+    }
+    header {
+        padding: 10px 5%;
+    }
+}
+
+@media only screen and (max-width: 200px) {
+    #content #form input {
+        width: 60%;
+    }
+    #response table {
+        font-size: 13px;
+    }
+    #response table tr th,
+    #response table tr td {
+        padding: 1px;
+    }
+
+}
