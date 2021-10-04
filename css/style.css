@@ -351,3 +351,35 @@ header a {
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 /***** !Amiri Font *****/
+/***** FontAwesome Font *****/
+/*!
+ * Font Awesome Free 6.0.0-beta2 by @fontawesome - https://fontawesome.com
+ * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
+ */
+.fa {
+    font-family: "Font Awesome 6 Free";
+    font-family: var(--fa-style-family,"Font Awesome 6 Free");
+    font-weight: 900;
+    font-weight: var(--fa-style,900);
+}
+.fa {
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    display: inline-block;
+    display: var(--fa-display,inline-block);
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+}
+.fa-search:before{
+    content:"\f002";
+}
+@font-face{
+    font-family: "Font Awesome 6 Free";
+    font-style: normal;
+    font-weight: 900;
+    font-display: block;
+    src: url(../fonts/fontawesome/fa-solid-900.woff2) format("woff2"), url(../fonts/fontawesome/fa-solid-900.ttf) format("truetype");
+}
+/***** !FontAwesome Font *****/
