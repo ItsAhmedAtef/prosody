@@ -73,6 +73,8 @@ header a {
 
 #content #form {
     text-align: center;
+    display: flex;
+    height: 35px;
 }
 
 #content #form input {
