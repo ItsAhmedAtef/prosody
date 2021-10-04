@@ -80,6 +80,7 @@ header a {
     margin-right: 5px;
     min-height: 33px;
     border: none;
+    font-size: 17px;
     border-radius: 5px;
     padding: 0 5px 0 2px;
 }
@@ -107,6 +108,8 @@ header a {
     border: none;
     border-radius: 5px;
     cursor: pointer;
+    font-size: 14px;
+    height: 100%;
     transition: all 0.3s ease 0s;
 }
 
