@@ -31,17 +31,35 @@
                 line-height: 1;
                 text-rendering: auto;
             }
-            .fa-search:before{
+            .fa-search:before {
                 content: "\f002";
             }
-            .fa-spin{
+            .fa-spin {
                 -webkit-animation: fa-spin 2s linear infinite;
                 animation: fa-spin 2s linear infinite;
             }
-            .fa-circle-notch:before{
+            .fa-circle-notch:before {
                 content: "\f1ce";
             }
-            @font-face{
+            @-webkit-keyframes fa-spin{ 
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform:rotate(0deg);
+                } to {
+                    -webkit-transform: rotate(1turn);
+                    transform:rotate(1turn)
+                }
+            }
+            @keyframes fa-spin{
+                0% {
+                    -webkit-transform: rotate(0deg);
+                    transform: rotate(0deg);
+                } to {
+                    -webkit-transform: rotate(1turn);
+                    transform:rotate(1turn);
+                }
+            }
+            @font-face {
                 font-family: "Font Awesome 6 Free";
                 font-style: normal;
                 font-weight: 900;
