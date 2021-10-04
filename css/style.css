@@ -116,6 +116,10 @@ header a {
     flex-wrap: wrap;
 }
 
+#contact_content div {
+    margin: 20px;
+}
+
 #contact_content img {
     width: 100px;
 }
