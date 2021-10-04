@@ -17,13 +17,11 @@
              * Font Awesome Free 6.0.0-beta2 by @fontawesome - https://fontawesome.com
              * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
              */
-            .fa {
+            .fa, fas {
                 font-family: "Font Awesome 6 Free";
                 font-family: var(--fa-style-family,"Font Awesome 6 Free");
                 font-weight: 900;
                 font-weight: var(--fa-style,900);
-            }
-            .fa {
                 -moz-osx-font-smoothing: grayscale;
                 -webkit-font-smoothing: antialiased;
                 display: inline-block;
@@ -34,7 +32,14 @@
                 text-rendering: auto;
             }
             .fa-search:before{
-                content:"\f002";
+                content: "\f002";
+            }
+            .fa-spin{
+                -webkit-animation: fa-spin 2s linear infinite;
+                animation: fa-spin 2s linear infinite;
+            }
+            .fa-circle-notch:before{
+                content: "\f1ce";
             }
             @font-face{
                 font-family: "Font Awesome 6 Free";
