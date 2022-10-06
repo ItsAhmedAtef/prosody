@@ -3,76 +3,18 @@
 
     <head>
         <meta charset="UTF-8" />
-        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
         <title>علم العروض - الرئيسية</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="img/logo.ico" />
-        <meta name="description" content="ادخل نص الشعر ليتم تقطيعه عروضيا وإيجاد تفعيلاته" />
-        <meta name="keywords" content="Arabic poetry,عروض,علم العروض,شعر" />
+        <meta name="description" content="ادخل نص الشعر ليتم تقطيعه عروضياً وإيجاد تفعيلاته" />
+        <meta name="keywords" content="Arabic poetry, Home, عروض ,علم العروض ,شعر ,الرئيسية" />
         <meta name="author" content="Ahmed Atef" />
-        <link rel="stylesheet" href="css/style.css?v=1.0" />
-        <style>
-            /***** FontAwesome Font *****/
-            /*!
-             * Font Awesome Free 6.0.0-beta2 by @fontawesome - https://fontawesome.com
-             * License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License)
-             */
-            .fa, .fas {
-                font-family: "Font Awesome 6 Free";
-                font-family: var(--fa-style-family,"Font Awesome 6 Free");
-                font-weight: 900;
-                font-weight: var(--fa-style,900);
-                -moz-osx-font-smoothing: grayscale;
-                -webkit-font-smoothing: antialiased;
-                display: inline-block;
-                display: var(--fa-display,inline-block);
-                font-style: normal;
-                font-variant: normal;
-                line-height: 1;
-                text-rendering: auto;
-            }
-            .fa-search:before {
-                content: "\f002";
-            }
-            .fa-spin {
-                -webkit-animation: fa-spin 2s linear infinite;
-                animation: fa-spin 2s linear infinite;
-            }
-            .fa-circle-notch:before {
-                content: "\f1ce";
-            }
-            @-webkit-keyframes fa-spin{ 
-                0% {
-                    -webkit-transform: rotate(0deg);
-                    transform:rotate(0deg);
-                } to {
-                    -webkit-transform: rotate(1turn);
-                    transform:rotate(1turn)
-                }
-            }
-            @keyframes fa-spin{
-                0% {
-                    -webkit-transform: rotate(0deg);
-                    transform: rotate(0deg);
-                } to {
-                    -webkit-transform: rotate(1turn);
-                    transform:rotate(1turn);
-                }
-            }
-            @font-face {
-                font-family: "Font Awesome 6 Free";
-                font-style: normal;
-                font-weight: 900;
-                font-display: block;
-                src: url(fonts/fontawesome/fa-solid-900.woff2) format("woff2"), url(fonts/fontawesome/fa-solid-900.ttf) format("truetype");
-            }
-            /***** !FontAwesome Font *****/
-        </style>
+        <link rel="stylesheet" href="css/style.css?v=1.1" />
     </head>
 
     <body>
         <header>
-            <img id="logo" src="img/logo.png" alt="logo" />
+            <img id="logo" src="img/logo.png" alt="أيقونة" />
             <nav>
                 <ul class="nav__links">
                     <li><a class="active">الرئيسية</a></li>
@@ -82,13 +24,23 @@
             </nav>
         </header>
         <div id="content">
-            <p>: أدخِل النص (بالتشكيل إن أمكن)</p>
-            <div id="form">
-                <input id="data" dir="rtl" type="text" placeholder="والصمت عن جاهل أو أحمق شرف و منه أيضاً لصون العرض إصلاح"><button id="Btn" type="button" dir="rtl" class="fa fa-search"></button>
+            <div id="home">
+                <h3>أدخِل البيت <span class="hint">(بالتشكيل إن أمكن)</span>:</h3>
+                <div id="form">
+                    <input id="input" type="text" value="" placeholder="أدخِل البيت">
+                    <i id="submit">
+                        <svg viewBox="-2 -4 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
+                            <path fill-rule="evenodd" clip-rule="evenodd"
+                            d="M18.319 14.4326C20.7628 11.2941 20.542 6.75347 17.6569 3.86829C14.5327 0.744098 9.46734 0.744098 6.34315 3.86829C3.21895 6.99249 3.21895 12.0578 6.34315 15.182C9.22833 18.0672 13.769 18.2879 16.9075 15.8442C16.921 15.8595 16.9351 15.8745 16.9497 15.8891L21.1924 20.1317C21.5829 20.5223 22.2161 20.5223 22.6066 20.1317C22.9971 19.7412 22.9971 19.1081 22.6066 18.7175L18.364 14.4749C18.3493 14.4603 18.3343 14.4462 18.319 14.4326ZM16.2426 5.28251C18.5858 7.62565 18.5858 11.4246 16.2426 13.7678C13.8995 16.1109 10.1005 16.1109 7.75736 13.7678C5.41421 11.4246 5.41421 7.62565 7.75736 5.28251C10.1005 2.93936 13.8995 2.93936 16.2426 5.28251Z"
+                            fill="#fff"/>
+                        </svg>
+                    </i>
+                </div>
+                <p id="error" class="notice hidden"></p>
             </div>
-            <div id="response"></div>
         </div>
-        <script src="js/app.js?v=1.0"></script>
-    </body>
+    </div>
+    <script src="js/app.js?v=1.1"></script>
+</body>
 
 </html>

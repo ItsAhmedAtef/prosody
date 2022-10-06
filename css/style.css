@@ -1,3 +1,11 @@
+@font-face {
+    font-family: "Amiri";
+    font-style: normal;
+    font-weight: 700;
+    font-display: swap;
+    src: url(../fonts/amiri/arabic.woff2) format("woff2");
+    unicode-range: U+0600-06FF, U+200C-200E, U+2010-2011, U+204F, U+2E41, U+FB50-FDFF, U+FE80-FEFC;
+}
 
 * {
     box-sizing: border-box;
@@ -8,321 +16,129 @@
 body {
     background-color: #2a2a2e;
     color: #fff;
+    font-family: "Amiri", monospace;
 }
 
 header {
     display: flex;
-    justify-content: flex-end;
     align-items: center;
-    padding: 15px 10%;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    padding: 15px 5px;
     background-color: #edf0f1;
 }
 
-header li {
-    font-size: 16px;
-    font-weight: 600;
-}
-
-header a {
-    text-decoration: none;
-    color: #000;
+#logo, header nav {
+    margin: auto;
 }
 
 #logo {
     cursor: pointer;
-    margin-right: auto;
     width: 100px;
 }
 
 .nav__links {
+    display: flex;
+    flex-direction: row;
+    font-size: 16px;
+    font-weight: 600;
     list-style: none;
-    text-align: right;
+    margin: 5px 0;
 }
 
 .nav__links li {
-    display: inline-block;
-    padding: 0 10px;
+    margin: 10px;
 }
 
-.nav__links li a {
-    transition: all 0.3s ease 0s;
-}
-
-.nav__links li a:hover {
-    color: #0088a9;
+.nav__links a {
+    text-decoration: none;
+    color: #000;
+    border: 3px solid #0088a9;
+    padding: 10px 15px;
+    border-radius: 15px;
 }
 
 .active {
-    background-color: rgba(0,136,169,1);
-    padding: 9px 25px;
-    border-radius: 20px;
-    color: #fff
-}
-.nav__links li .active:hover {
-    color: #fff;
+    background-color: #0088a9;
+    color: #fff !important;
 }
 
 #content {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    flex-direction: column;
-    margin-top: 30px;
-    font-size: 25px;
-}
-
-#content #form {
+    padding: 15px;
     text-align: center;
-    display: flex;
-    height: 35px;
 }
 
-#content #form input {
-    width: 400px;
-    margin-right: 5px;
-    min-height: 33px;
+#about, #contact, #home {
+    font-size: 28px;
+    direction: rtl;
+}
+
+#form {
+    display: flex;
+    background-color: #fff;
+    border-radius: 30px;
+    height: 40px;
+    width: 100%;
+    max-width: 600px;
+    padding: 2px 15px;
+    margin: 10px auto;
+}
+
+#form input {
+    flex: 1;
     border: none;
-    font-size: 17px;
-    border-radius: 5px;
-    padding: 0 5px 0 2px;
+    outline: none;
+    font-size: 28px;
+    overflow: auto;
+    margin-left: 5px;
 }
 
-#content p {
-    margin-bottom: 15px;
-    text-align: center;
+#form i {
+    background-color: #1dbce2;
+    border-radius: 50%;
+    width: 35px;
+    height: 35px;
+    cursor: pointer;
+    margin: auto;
+    margin-left: -10px;
+}
+
+.hidden {
+    display: none;
 }
 
 #about span {
     color: #0088a9;
 }
 
-#about {
-    padding: 10px 30px;
-    text-align: center;
-    font-family: "Amiri";
-    font-size: 20px;
+.notice {
+    color: #e83232 !important;
 }
 
-#content #form button {
-    padding: 10px;
-    background-color: #0088a9;
-    color: #fff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    font-size: 14px;
-    height: 100%;
-    transition: all 0.3s ease 0s;
+.hint {
+    color: #0088a9 !important;
 }
 
-#contact_content {
+#contact {
     display: flex;
     justify-content: center;
     flex-wrap: wrap;
 }
 
-#contact_content div {
-    margin: 20px;
+#contact div {
+    margin: 30px;
 }
 
-#contact_content img {
+#contact img {
     width: 100px;
-}
-
-#response {
-    padding: 10px;
-    text-align: center;
-}
-
-#response table {
-    border-collapse: collapse;
-    margin-bottom: 10px;
-    direction: rtl;
-}
-
-#response table span {
-    color: #0088a9;
-}
-
-#response table tr td,
-#response table tr th {
-    padding: 5px;
-}
-
-#response table tr td {
-    border-bottom: 1px solid #40c7e8;
-}
-
-/***** ***** circle ***** *****/
-.single-chart {
-    width: 100px;
-    margin: 10px;
-    display: inline-grid;
-}
-
-.circular-chart {
-    display: block;
-    stroke: #4CC790;
-}
-
-.circle-bg {
-    fill: none;
-    stroke: #eee;
-    stroke-width: 1.5;
-}
-
-.circle {
-    fill: none;
-    stroke-width: 2.8;
-    stroke-linecap: round;
-    animation: progress 1.5s ease-out forwards;
-}
-
-@keyframes progress {
-    0% {
-        stroke-dasharray: 0 100;
-    }
-}
-
-.percentage {
-    font-family: sans-serif;
-    font-size: 10px;
-    text-anchor: middle;
-}
-/***** ***** circle ***** *****/
-
-@media only screen and (min-width: 1280px) {
-    header li {
-        font-size: 18px;
-    }
-    .nav__links li {
-        padding: 0 15px;
-    }
-}
-
-@media only screen and (max-width: 800px) {
-    #logo {
-        width: 80px;
-    }
-}
-
-@media only screen and (max-width: 550px) {
-    #content #form input {
-        width: 300px;
-    }
-}
-
-@media only screen and (max-width: 500px) {
-    header {
-        padding: 15px 8%;
-    }
-    #logo {
-        width: 70px;
-    }
-    .nav__links li {
-        padding: 0 8px;
-    }
-    .active {
-        padding: 8px 15px;
-        border-radius: 20px;
-
-    }
-    header li {
-        font-size: 15px;
-        font-weight: 500;
-    }
-}
-
-@media only screen and (max-width: 450px) {
-    #response table {
-        font-size: 17px;
-    }
-}
-
-@media only screen and (max-width: 390px) {
-    header {
-        padding: 15px 5%;
-    }
-    #logo {
-        width: 60px;
-    }
-    .nav__links li {
-        padding: 0 4px;
-    }
-    .active {
-        padding: 8px 12px;
-        border-radius: 20px;
-
-    }
-    header li {
-        font-size: 15px;
-        font-weight: 500;
-    }
-    #content #form input {
-        width: 200px;
-    }
-}
-
-.fa-spin {
-    border-radius: 50% !important;
 }
 
 @media only screen and (max-width: 300px) {
-    header {
-        padding: 10px 2%;
-    }
-    #logo {
-        width: 60px;
-    }
     .nav__links li {
-        padding: 0 1px;
+        margin: 5px;
     }
-    .active {
-        padding: 8px 12px;
-        border-radius: 20px;
-
+    .nav__links a {
+        padding: 5px 7px;
+        border-radius: 7px;
     }
-    header li {
-        font-size: 13px;
-        font-weight: 500;
-    }
-}
-
-@media only screen and (max-width: 270px) {
-    #response table {
-        font-size: 15px;
-    }
-    #response table tr th,
-    #response table tr td {
-        padding: 2px;
-    }
-}
-
-@media only screen and (max-width: 260px) {
-    #content #form input {
-        width: 150px;
-    }
-}
-
-@media only screen and (max-width: 230px) {
-    .active {
-        display: none;
-    }
-    header {
-        padding: 10px 5%;
-    }
-}
-
-@media only screen and (max-width: 200px) {
-    #content #form input {
-        width: 60%;
-    }
-    #response table {
-        font-size: 13px;
-    }
-    #response table tr th,
-    #response table tr td {
-        padding: 1px;
-    }
-
 }
