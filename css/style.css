@@ -118,6 +118,10 @@ input[type="search"]::-webkit-search-results-decoration {
     word-break: break-all;
 }
 
+#outputB {
+    unicode-bidi: bidi-override;
+}
+
 #about span {
     color: #0088a9;
 }

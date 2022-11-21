@@ -37,6 +37,10 @@ const ALPHABETS = [
     "ئ"
 ];
 
+const SILENT_FORMATION = "ْ"; // سكون
+
+const DOUBLE_FORMATION = "ّ" // شدة
+
 const FORMATIONS = [
     "َ", // فتحة
     "ِ", // كسرة
@@ -44,14 +48,34 @@ const FORMATIONS = [
     "ً", // تنوين الفتح
     "ٍ", // تنوين الكسر
     "ٌ", // تنوين الضم
-    "ْ", // سكون
-    "ّ" // شدة
+    SILENT_FORMATION,
+    DOUBLE_FORMATION
 ];
-
-const SILENT_FORMATION = "ْ"; // سكون
 
 const VOWEL_FORMATIONS = [
     "َ", // فتحة
     "ِ", // كسرة
-    "ُ", // ضمة
+    "ُ" // ضمة
 ];
+
+const NONE_STARTABLE_CHARS = [
+    "ء",
+    "ة",
+    "ؤ",
+    "ى",
+    "ئ"
+];
+
+replaceKeywords = {
+    "لا": "لَاْ",
+    "لَا": "لَاْ",
+
+    "يا": "يَاْ",
+    "يَا": "يَاْ",
+
+    "ما": "مَاْ",
+    "مَا": "مَاْ",
+
+    "ذا": "ذَاْ",
+    "ذَا": "ذَاْ",
+};

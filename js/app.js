@@ -14,7 +14,14 @@ const showError = ( message ) => {
 };
 
 const customTrim = ( phrase ) => {
-    return phrase.trim().replace(/\s+/g, " ");;
+    return phrase.trim().replace(/\s+/g, " ");
+};
+
+const FormatWordsForYOu = ( phrase ) => {
+    let re = new RegExp(Object.keys(replaceKeywords).join("|"), "gi");
+    return phrase.replace( re, (matched) => {
+        return replaceKeywords[matched];
+    });
 };
 
 const analyze = ( userInput ) => {
@@ -30,11 +37,24 @@ const analyze = ( userInput ) => {
         // Validate Arabic chars and formations.
         let userAlphabets = "";
         let userFormatedAlphabets = "";
-        for ( let char of userInput ) {
-            if (ALPHABETS.includes(char) || char === " ") {
-                userAlphabets += char;
-                userFormatedAlphabets += char;
+        for ( let index in userInput ) {
+            char = userInput[index];
+            charBefore = index-1 > -1 ? userInput[index-1]: "";
+            if (char === " ") {
+                if (charBefore !== " ") {
+                    userAlphabets += char;
+                    userFormatedAlphabets += char;
+                }
             } else if (FORMATIONS.includes(char)) {
+                if (![" ", ""].includes(charBefore)) {
+                    if (charBefore === DOUBLE_FORMATION) {
+                        if (![SILENT_FORMATION, DOUBLE_FORMATION].includes(char)) userFormatedAlphabets += char;
+                    } else if (!FORMATIONS.includes(charBefore)) {
+                        userFormatedAlphabets += char;
+                    }
+                }
+            } else if (ALPHABETS.includes(char)) {
+                userAlphabets += char;
                 userFormatedAlphabets += char;
             }
         }
@@ -48,7 +68,19 @@ const analyze = ( userInput ) => {
             return;
         }
 
+        // Validate Starting Words
+        let userWords = userAlphabets.split(" ");
+        for ( word of userWords ) {
+            if (NONE_STARTABLE_CHARS.includes(word[0])) {
+                startingError = `لا يمكن البدء بـ"${word[0]}"`;
+                if (word.length > 1) startingError += ` في كلمة "${word}"`;
+                showError(startingError);
+                return;
+            }
+        }
+
         input.value = userFormatedAlphabets;
+        userFormatedAlphabets = FormatWordsForYOu(userFormatedAlphabets);
 
         let outputAlphabets = "";
         let outputBinary = "";
@@ -64,6 +96,7 @@ const analyze = ( userInput ) => {
                     outputBinary += " ";
                 } else if ( !charBefore ) {
                     // First char.
+                    // Can't start with silent.
                     outputAlphabets += char;
                     outputBinary += "/";
                 } else if ( SILENT_FORMATION === charAfter ) {
@@ -72,6 +105,12 @@ const analyze = ( userInput ) => {
                 } else if ( VOWEL_FORMATIONS.includes(charAfter) ) {
                     outputAlphabets += char;
                     outputBinary += "/";
+                } else if ( charAfter === DOUBLE_FORMATION ) {
+                    outputAlphabets += char + char;
+                    outputBinary += "O/";
+                } else if (!charAfter) {
+                    outputAlphabets += char;
+                    outputBinary += "O";
                 } else {
                     // Couldn't detect.
                     outputAlphabets += `<span class="notice">${char}</span>`;
