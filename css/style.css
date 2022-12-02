@@ -110,6 +110,10 @@ input[type="search"]::-webkit-search-results-decoration {
     margin-left: -10px;
 }
 
+#app_version {
+    color: #fff;
+}
+
 .hidden {
     display: none;
 }

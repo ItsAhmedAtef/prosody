@@ -1,9 +1,22 @@
+const A = "ا";
+
+const AA = "اّ";
+
+const N = "ن";
+
+const NONE_STARTABLE_CHARS = [
+    "ة",
+    "ؤ",
+    "ئ",
+    "ى"
+];
+
 const ALPHABETS = [
     "ء",
+    A,
     "أ",
-    "ا",
-    "إ",
     "آ",
+    "إ",
     "ب",
     "ت",
     "ث",
@@ -27,29 +40,11 @@ const ALPHABETS = [
     "ك",
     "ل",
     "م",
-    "ن",
+    N,
     "ه",
-    "ة",
     "و",
-    "ؤ",
     "ي",
-    "ى",
-    "ئ"
-];
-
-const SILENT_FORMATION = "ْ"; // سكون
-
-const DOUBLE_FORMATION = "ّ" // شدة
-
-const FORMATIONS = [
-    "َ", // فتحة
-    "ِ", // كسرة
-    "ُ", // ضمة
-    "ً", // تنوين الفتح
-    "ٍ", // تنوين الكسر
-    "ٌ", // تنوين الضم
-    SILENT_FORMATION,
-    DOUBLE_FORMATION
+    ...NONE_STARTABLE_CHARS
 ];
 
 const VOWEL_FORMATIONS = [
@@ -58,24 +53,35 @@ const VOWEL_FORMATIONS = [
     "ُ" // ضمة
 ];
 
-const NONE_STARTABLE_CHARS = [
-    "ء",
-    "ة",
-    "ؤ",
-    "ى",
-    "ئ"
+const DOUBLE_VOWEL_FORMATIONS = [
+    "ً", // تنوين الفتح
+    "ٍ", // تنوين الكسر
+    "ٌ" // تنوين الضم
 ];
 
-replaceKeywords = {
+const SILENT_FORMATION = "ْ"; // سكون
+
+const DOUBLE_FORMATION = "ّ" // شدة
+
+const FORMATIONS = [
+    ...VOWEL_FORMATIONS,
+    ...DOUBLE_VOWEL_FORMATIONS,
+    SILENT_FORMATION,
+    DOUBLE_FORMATION
+];
+
+/*
+const MODIFIED_KEYWORDS = {
+    "ذا": "ذَاْ",
+    "ذَا": "ذَاْ",
+
     "لا": "لَاْ",
     "لَا": "لَاْ",
-
-    "يا": "يَاْ",
-    "يَا": "يَاْ",
 
     "ما": "مَاْ",
     "مَا": "مَاْ",
 
-    "ذا": "ذَاْ",
-    "ذَا": "ذَاْ",
+    "يا": "يَاْ",
+    "يَا": "يَاْ"
 };
+*/
