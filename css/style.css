@@ -56,19 +56,18 @@ header {
     border: 3px solid #0088a9;
     padding: 10px 15px;
     border-radius: 15px;
+    cursor: pointer;
 }
 
 .active {
     background-color: #0088a9;
     color: #fff !important;
+    cursor: unset !important;
 }
 
 #content {
     padding: 15px;
     text-align: center;
-}
-
-#about, #contact, #home {
     font-size: 28px;
     direction: rtl;
 }
@@ -115,7 +114,7 @@ input[type="search"]::-webkit-search-results-decoration {
 }
 
 .hidden {
-    display: none;
+    display: none !important;
 }
 
 #outputA, #outputB {

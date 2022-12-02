@@ -3,13 +3,13 @@
 
     <head>
         <meta charset="UTF-8" />
-        <title>علم العروض - الرئيسية</title>
+        <title>علم العروض - تحليل أبيات الشعر</title>
         <meta name="viewport" content="width=device-width, initial-scale=1.0" />
         <link rel="shortcut icon" href="img/logo.ico" />
-        <meta name="description" content="ادخل نص الشعر ليتم تقطيعه عروضياً وإيجاد تفعيلاته" />
-        <meta name="keywords" content="Arabic poetry, Home, عروض ,علم العروض ,شعر ,الرئيسية" />
+        <meta name="description" content="موقع علم العروض يتيح لك تحليل أبيات الشعر عروضيا، حيث يمكنك إدخال النص ومعرفة التفعيلات والحركات" />
+        <meta name="keywords" content="Arabic poetry, Home, Contact, About, عروض ,علم العروض ,شعر ,الرئيسية ,تواصل , تعريف بالموقع" />
         <meta name="author" content="Ahmed Atef" />
-        <link rel="stylesheet" href="css/style.css?v=1.4" />
+        <link rel="stylesheet" href="css/style.css?v=1.5" />
     </head>
 
     <body>
@@ -17,9 +17,9 @@
             <img id="logo" src="img/logo.png" alt="أيقونة" />
             <nav>
                 <ul class="nav__links">
-                    <li><a class="active">الرئيسية</a></li>
-                    <li><a href="about.html">تعريف</a></li>
-                    <li><a href="contact.html">تواصل</a></li>
+                    <li><a id="nav_home" class="active">الرئيسية</a></li>
+                    <li><a id="nav_about">تعريف</a></li>
+                    <li><a id="nav_contact">تواصل</a></li>
                 </ul>
             </nav>
         </header>
@@ -27,7 +27,7 @@
             <div id="home">
                 <h3>أدخِل البيت <span class="hint">(بالتشكيل إن أمكن)</span>:</h3>
                 <div id="form">
-                    <input id="input" autofocus maxlength="2048" autocorrect="off" spellcheck="false" name="verse" autocomplete="off" type="search" value="" placeholder="أدخِل البيت">
+                    <input id="input" autofocus maxlength="2048" spellcheck="false" name="verse" autocomplete="off" type="search" value="" placeholder="أدخِل البيت">
                     <i id="submit">
                         <svg viewBox="-2 -4 32 32" fill="none" xmlns="http://www.w3.org/2000/svg">
                             <path fill-rule="evenodd" clip-rule="evenodd"
@@ -36,15 +36,29 @@
                         </svg>
                     </i>
                 </div>
-                <i id="app_version">V1.4</i>
+                <i id="app_version">V1.5</i>
                 <p id="error" class="notice hidden"></p>
                 <p id="outputA" class="hidden"></p>
                 <p id="outputB" class="hidden"></p>
             </div>
+            <div id="about" class="hidden">
+                <p><span>التعريف بالموقع</span>: الموقع يتيح لك تحليل أبيات الشعر عروضياً، حيث يمكنك إدخال أبيات الشعر ومعرفة البحر الخاص بالبيت والحركات والتفعيلات التي توجد به.<br>وما أبغي من هذا العمل إلا وجه الله تعالي والتيسير علي من شق عليه علم العروض، مستهلكاً كثيراً من الوقت في محاولة إكتشاف الزحاف في البيت الذي أدي الي صعوبة في محاولة تحليل النص.<br>وفي الأخير أشكر أستاذي ومعلمي الدكتور <span>محمد أبو الوفا الخياط</span>؛ فهو من فتح لي الطريق لهذا العلم وسهله علي، وأسألكم الدعاء بالرحمة لوالدي.<br><span class="notice">*هذا الموقع تحت التطوير، يرجي عدم الإعتماد علي هذه النتائج.</span></p>
+            </div>
+            <div id="contact" class="hidden">
+                <div>
+                    <a target="_blank" href="https://t.me/ItsAhmedAtef" aria-label="تليجرام"><img src="img/telegram.png" alt="تليجرام" /></a>
+                    <p>تليجرام</p>
+                </div>
+                <div>
+                    <a target="_blank" href="https://github.com/ItsAhmedAtef" aria-label="جيت هَـب"><img src="img/github.png" alt="جيت هَـب" /></a>
+                    <p>جيت هَـب</p>
+                </div>
+            </div>
         </div>
-    </div>
-    <script src="js/constants.js?v=1.4"></script>
-    <script src="js/app.js?v=1.4"></script>
-</body>
+
+        <script src="js/constants.js?v=1.5"></script>
+        <script src="js/app.js?v=1.5"></script>
+
+    </body>
 
 </html>

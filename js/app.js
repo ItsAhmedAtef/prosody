@@ -1,4 +1,5 @@
 // HTML Constants
+const navLinks = document.querySelector(".nav__links");
 const formInput = document.getElementById("input");
 const submitButton = document.getElementById("submit");
 const errorMessage = document.getElementById("error");
@@ -28,6 +29,13 @@ const updateGUI = ( action, data )  => {
 };
 
 const showError = ( message ) => { updateGUI( "error", { error: "*" + message } ); };
+
+const forceFormat = ( userInput ) => {
+    let re = new RegExp(Object.keys(MODIFIED_KEYWORDS).join("|"), "gi");
+    return userInput.replace( re, (matched) => {
+        return MODIFIED_KEYWORDS[matched];
+    });
+};
 
 const processData = ( data ) => {
     let alphabetsOut = "";
@@ -139,20 +147,28 @@ const validate = ( userData ) => {
             }
         }
 
-        processData(userData);
+        processData(forceFormat(userData));
 
     }
 };
 
+// Listen on navigation
+navLinks.addEventListener("click", (e) => {
+    if (e.target.nodeName === "A") {
+        for ( let li of navLinks.children ) {
+            let a = li.querySelector("a");
+            let showDiv = document.getElementById(a.id.replace("nav_",""));
+            if (a.id === e.target.id) {
+                if (!a.classList.contains("acitve")) a.classList.add("active");
+                if (showDiv.classList.contains("hidden")) showDiv.classList.remove("hidden");
+            } else {
+                if (a.classList.contains("active")) a.classList.remove("active");
+                if (!showDiv.classList.contains("hidden")) showDiv.classList.add("hidden");
+            }
+        }
+    }
+});
+
 // Listen on submit
 submitButton.addEventListener("click", () => { validate(input.value); });
 formInput.addEventListener("keypress", (e) => { if (e.key === "Enter") validate(e.target.value); });
-
-/*
-const FormatWordsForYOu = ( phrase ) => {
-    let re = new RegExp(Object.keys(MODIFIED_KEYWORDS).join("|"), "gi");
-    return phrase.replace( re, (matched) => {
-        return MODIFIED_KEYWORDS[matched];
-    });
-};
-*/
