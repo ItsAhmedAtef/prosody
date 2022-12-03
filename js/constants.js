@@ -71,8 +71,5 @@ const FORMATIONS = [
 ];
 
 const MODIFIED_KEYWORDS = {
-    "با": "بَا",
-    "ذا": "ذَا",
-    "ما": "مَا",
     "يا": "يَا"
 };
