@@ -63,12 +63,12 @@ let Timer = null;
 const celebrate = () => {
 
     // Thanks to <3 https://codepen.io/kareem-mahmoud/embed/abpamZp/
-    for( let i=0; i<100; i++) {
+    for( let i=0; i<50; i++) {
         let randomRotation = Math.floor(Math.random()*360);
         let randomScale = Math.random()*1;
         let randomWidth = Math.floor(Math.random()*Math.max(document.documentElement.clientWidth, window.innerWidth || 0));
         let randomHeight =  Math.floor(Math.random()*Math.max(document.documentElement.clientHeight, window.innerHeight || 500));
-        let randomAnimationDelay = Math.floor(Math.random()*5);
+        let randomAnimationDelay = Math.floor(Math.random()*6);
         let colors = ["#0CD977", "#FF1C1C", "#FF93DE", "#5767ED", "#FFC61C", "#8497B0"];
         let randomColor = colors[Math.floor(Math.random()*colors.length)];
 
@@ -129,23 +129,33 @@ const bahrChecker = ( realBinary ) => {
         score = ((score/checkA.length)*100).toFixed(2);
         let hold = BEHOOR[bahr];
         hold.score = parseFloat(score);
-        similarity.push(hold);
+        if (hold.score === 100.00) {
+            similarity[hold.name] = hold;
+        } else {
+            if (similarity[hold.name]) {
+                if (hold.score > similarity[hold.name].score) {
+                    similarity[hold.name] = { name: hold.name, score: hold.score };
+                }
+            } else {
+                similarity[hold.name] = { name: hold.name, score: hold.score };
+            }
+        }
     }
 
     // Sort by max score
     similarity = similarity.sort( (x, y) => {
         if (x.score < y.score) return 1;
         if (x.score > y.score) return -1;
-        return 0;        
+        return 0;
     });
 
-    if ( similarity[0].score === 100.00 ) {
+    if ( Object.values(similarity)[0] && Object.values(similarity)[0].score === 100.00 ) {
         // Bahr found
         celebrate();
-        echo_sound = similarity[0].echo_sound;
+        echo_sound = Object.values(similarity)[0].echo_sound;
         htmlData = `<i>${echo_sound}</i>`;
-        htmlData += `<i class="green">${similarity[0].name}</i>`;
-        htmlData += `<i class="hint">${similarity[0].notes}</i>`;
+        htmlData += `<i class="green">${Object.values(similarity)[0].name}</i>`;
+        htmlData += `<i class="hint">${Object.values(similarity)[0].notes}</i>`;
     } else if ( realBinary.length >= 20 ) {
 
         let helper = [
@@ -155,13 +165,13 @@ const bahrChecker = ( realBinary ) => {
 
         htmlData = `<i class="notice">عفواً لم يتم العثور على البحر، ${helper[Math.floor(Math.random()*helper.length)]}</i>`;
 
-        if ( similarity[0].score >= 75 ) {
+        if ( Object.values(similarity)[0] && Object.values(similarity)[0].score >= 75 ) {
             let percentageDiv = '<div id="percentageContainer">';
-            percentageDiv += percentageHTML(similarity[0].score, similarity[0].name);
-            if ( similarity[1].score >= 75 ) {
-                percentageDiv += percentageHTML(similarity[1].score, similarity[1].name);
-                if ( similarity[2].score >= 75 ) {
-                    percentageDiv += percentageHTML(similarity[2].score, similarity[2].name);
+            percentageDiv += percentageHTML(Object.values(similarity)[0].score, Object.values(similarity)[0].name);
+            if ( Object.values(similarity)[1] && Object.values(similarity)[1].score >= 75 ) {
+                percentageDiv += percentageHTML(Object.values(similarity)[1].score, Object.values(similarity)[1].name);
+                if ( Object.values(similarity)[2] && Object.values(similarity)[2].score >= 75 ) {
+                    percentageDiv += percentageHTML(Object.values(similarity)[2].score, Object.values(similarity)[2].name);
                 }
             }
             percentageDiv += "</div>";
@@ -176,9 +186,13 @@ const bahrChecker = ( realBinary ) => {
 
 const forceFormat = ( userInput ) => {
     let re = new RegExp(Object.keys(MODIFIED_KEYWORDS).join("|"), "gi");
-    return userInput.replace( re, (matched) => {
+    let formated = userInput.replace( re, (matched) => {
         return MODIFIED_KEYWORDS[matched];
     });
+    if (userInput !== formated) {
+        return forceFormat(formated);
+    }
+    return formated;
 };
 
 const processData = ( data ) => {
@@ -203,7 +217,7 @@ const processData = ( data ) => {
                     binaryOut += "O";
                     realBinary += "O";
                 } else {
-                    alphabetsOut += data[i] + N;
+                    alphabetsOut += (data[i] === CLOSED_T? OPENED_T: data[i]) + N;
                     binaryOut += "/O";
                     realBinary += "/O";
                 }
